@@ -1,0 +1,9 @@
+grammar upb.edu.lp.Chopi_Impostor with org.eclipse.xtext.common.Terminals
+
+generate chopi_Impostor "http://www.edu.upb/lp/Chopi_Impostor"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
