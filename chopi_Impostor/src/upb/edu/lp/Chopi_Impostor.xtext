@@ -1,9 +1,120 @@
 grammar upb.edu.lp.Chopi_Impostor with org.eclipse.xtext.common.Terminals
 
-generate chopi_Impostor "http://www.edu.upb/lp/Chopi_Impostor"
+generate chopiImpostor "http://www.edu.upb/lp/Chopi_Impostor"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+Program:
+    'Chopi' 'saca' 'el' 'impostor'
+    declarations+=JugadorDecl*
+    discussions+=DiscussionDecl*
+    statements+=Statement+
+    'Alexis' ':' 'ya' 'chicos' 'volvamos' 'a' 'clases'
+;
+
+JugadorDecl:
+      IntDecl
+    | BoolDecl
+    | StringDecl
+;
+
+IntDecl:
+    value=INT 'veces' 'que' name=ID 'es' 'impostor'
+;
+
+BoolDecl:
+    name=ID ('es' | 'no' 'es') 'impostor'
+;
+
+StringDecl:
+    'Palabra' 'de' name=ID 'es' value=STRING
+;
+
+DiscussionDecl:
+    'Discusion' name=ID 'entre' params+=ID (',' params+=ID)*
+    'Empieza' 'discusion'
+        body+=Statement*
+    'Fin' 'de' 'discusion'
+;
+
+Statement:
+      SelfOpStmt
+    | OtherOpStmt
+    | PrintStmt
+    | InputStmt
+    | CallStmt
+    | ReturnStmt
+    | IfStmt
+    | WhileStmt
+;
+
+SelfOpStmt:
+    target=[JugadorDecl|ID] ':' op=Operator
+;
+
+OtherOpStmt:
+    target=[JugadorDecl|ID] ':' source=[JugadorDecl|ID] 'acaso' 'dijiste' op=Operator '?'
+;
+
+PrintStmt:
+    target=[JugadorDecl|ID] 'revelará' 'si' 'es' 'impostor'
+;
+
+InputStmt:
+    target=[JugadorDecl|ID] 'que' 'palabra' 'escoges' '?'
+;
+
+CallStmt:
+    target=[JugadorDecl|ID] 'habla' 'sobre' 'discusion' discussion=[DiscussionDecl|ID] 'con' args+=[JugadorDecl|ID] (',' args+=[JugadorDecl|ID])*
+;
+
+ReturnStmt:
+    'Se' 'expulsa' 'a' value=[JugadorDecl|ID]
+;
+
+IfStmt:
+    'Conteo' 'de' 'votos' ':' condition=Condition '?'
+    'Empieza' 'sospecha'
+        thenStatements+=Statement*
+    (
+        'O'
+        'Empieza' 'sospecha'
+            elseStatements+=Statement*
+    )?
+    'Fin' 'de' 'sospecha'
+;
+
+WhileStmt:
+    'Empieza' 'ronda' ':' 'inicia' start=[JugadorDecl|ID] 'y' 'termina' end=[JugadorDecl|ID]
+        body+=Statement*
+    'Fin' 'de' 'ronda'
+;
+
+Condition:
+    first=Comparison (logicOps+=LogicOperator others+=Comparison)*
+;
+
+Comparison:
+    left=[JugadorDecl|ID] comp=Comparator right=[JugadorDecl|ID]
+;
+
+Operator:
+      'mar'
+    | 'peru'
+    | 'pan'
+    | 'moises'
+    | 'rojo'
+    | 'oceano'
+    | 'pato'
+    | 'pez'
+;
+
+Comparator:
+      'tiene' 'mas' 'que'
+    | 'tiene' 'menos' 'que'
+    | 'tiene' 'igual' 'que'
+    | 'tiene' 'distinto' 'que'
+;
+
+LogicOperator:
+      'pato'
+    | 'pez'
+;
