@@ -51,7 +51,7 @@ SelfOpStmt:
 ;
 
 OtherOpStmt:
-    target=[JugadorDecl|ID] ':' source=[JugadorDecl|ID] 'acaso' 'dijiste' op=Operator '?'
+    target=[JugadorDecl|ID] ':' source=[JugadorDecl|ID] op=OtherOperator
 ;
 
 PrintStmt:
@@ -71,15 +71,14 @@ ReturnStmt:
 ;
 
 IfStmt:
-    'Conteo' 'de' 'votos' ':' condition=Condition '?'
-    'Empieza' 'sospecha'
+    'Momento' 'de' 'funar' ':' condition=Condition '?'
+    'Si' 'es' 'verdad'
         thenStatements+=Statement*
     (
-        'O'
-        'Empieza' 'sospecha'
+        'Pero' 'si' 'no'
             elseStatements+=Statement*
     )?
-    'Fin' 'de' 'sospecha'
+    'Se' 'acabo' 'el' 'debate'
 ;
 
 WhileStmt:
@@ -107,6 +106,14 @@ Operator:
     | 'pez'
 ;
 
+OtherOperator:
+      'descartate'
+    | 'la' 'regalaste'
+    | 'te' 'fuiste' 'muy' 'lejos'
+    | 'eres' 'muy' 'malo'
+    | 'no' 'entendi' 'tu' 'palabra'
+;
+
 Comparator:
       'tiene' 'mas' 'que'
     | 'tiene' 'menos' 'que'
@@ -115,6 +122,6 @@ Comparator:
 ;
 
 LogicOperator:
-      'pato'
-    | 'pez'
+      'y' 'tambien'
+    | 'o' 'si' 'no'
 ;
