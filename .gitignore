@@ -1,41 +1,13 @@
-# macOS
-.DS_Store
+# Ignorar todo por defecto
+*
 
-# Eclipse / Java build outputs
-bin/
-target/
-build/
-out/
-*.class
-*.log
+# Permitir navegar carpetas
+!*/
 
-# Eclipse workspace metadata
-.metadata/
+# Mantener este archivo
+!.gitignore
 
-# Eclipse project settings
-**/.settings/
-
-# Launch configs
-**/.launch/
-
-# Xtext / Xtend generated sources
-**/src-gen/
-**/xtend-gen/
-
-# Temporary/generated workflow outputs
-**/tmp/
-**/temp/
-
-# PDE / OSGI caches if they appear
-**/.cache/
-
-# Maven / Gradle
-**/.gradle/
-**/build/
-
-# VS Code
-.vscode/
-
-# IntelliJ
-.idea/
-*.iml
+# Permitir solo los 3 archivos importantes
+!chopi_Impostor/src/upb/edu/lp/Chopi_Impostor.xtext
+!chopi_Impostor/src/upb/edu/lp/validation/Chopi_ImpostorValidator.java
+!chopi_Impostor/src/upb/edu/lp/generator/Chopi_ImpostorGenerator.java
