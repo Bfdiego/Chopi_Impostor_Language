@@ -1,7 +1,13 @@
-.DS_Store
-bin/
-target/
-build/
-.metadata/
-*.class
-*.log
+# Ignorar todo por defecto
+*
+
+# Permitir navegar carpetas
+!*/
+
+# Mantener este archivo
+!.gitignore
+
+# Permitir solo los 3 archivos importantes
+!chopi_Impostor/src/upb/edu/lp/Chopi_Impostor.xtext
+!chopi_Impostor/src/upb/edu/lp/validation/Chopi_ImpostorValidator.java
+!chopi_Impostor/src/upb/edu/lp/generator/Chopi_ImpostorGenerator.java
