@@ -1,7 +1,41 @@
+# macOS
 .DS_Store
+
+# Eclipse / Java build outputs
 bin/
 target/
 build/
-.metadata/
+out/
 *.class
 *.log
+
+# Eclipse workspace metadata
+.metadata/
+
+# Eclipse project settings
+**/.settings/
+
+# Launch configs
+**/.launch/
+
+# Xtext / Xtend generated sources
+**/src-gen/
+**/xtend-gen/
+
+# Temporary/generated workflow outputs
+**/tmp/
+**/temp/
+
+# PDE / OSGI caches if they appear
+**/.cache/
+
+# Maven / Gradle
+**/.gradle/
+**/build/
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml
